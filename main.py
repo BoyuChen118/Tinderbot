@@ -6,6 +6,7 @@ import time
 from tkinter import *
 from selenium import *
 from selenium.webdriver.common.action_chains import ActionChains
+from confidentials import username,password
 
 
 class Tinderbot:
@@ -17,6 +18,7 @@ class Tinderbot:
         self.driver = driver
         actions = ActionChains(driver)
         driver.get("https://tinder.com/")
+        driver.find_element_by_xpath('//*[@id="content"]/div/div[1]/div/main/div[1]/div/div/header/div[1]/div[2]/div/button').click()
         time.sleep(2)
         facebook = driver.find_element_by_xpath('//*[@id="modal-manager"]/div/div/div[1]/div/div[3]/span/div[2]/button')
         facebook.click()
@@ -60,11 +62,11 @@ class Tinderbot:
             pass
 
 
-e = "alexboyuchen@gmail.com"
-p = "2000118tten"
+e = username
+p = password
 
 T=Tinderbot(e,p)
-T.infinitedislike(1)
+T.infinitelike(1)  # argument inside is delay time
 
 
 
